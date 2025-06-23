@@ -50,3 +50,74 @@ impl Dog<Dachshund> {
         "dachshund"
     }
 }
+
+trait DoesItBark {
+    fn it_barks(&self) -> bool;
+}
+
+struct Cat;
+impl DoesItBark for Cat {
+    fn it_barks(&self) -> bool {
+        true
+    }
+}
+
+struct Rectangle {
+    width: i32,
+    height: i32,
+}
+
+impl Rectangle {
+    pub fn new(width: i32, height: i32) -> Self{
+        Self { width, height }
+    }
+} 
+    
+struct Square {
+    side: i32,
+}
+
+impl Square {
+    pub fn new(side: i32) -> Self {
+        Self { side }
+    }
+
+    pub fn get_side(&self) -> i32 {
+        self.side
+    }
+}
+
+
+trait Rectanglur {
+
+    fn get_width(&self) -> i32;
+    fn get_length(&self) -> i32;
+    fn get_area(&self) -> i32;
+}
+
+impl Rectanglur for Rectangle {
+    fn get_area(&self) -> i32 {
+        self.height * self.width
+    }
+
+    fn get_length(&self) -> i32 {
+        self.height
+    }
+
+    fn get_width(&self) -> i32 {
+        self.width
+    }
+}
+
+
+impl Rectanglur for Square {
+    fn get_area(&self) -> i32 {
+        self.side *self.side
+    }
+    fn get_length(&self) -> i32 {
+        self.side
+    }
+    fn get_width(&self) -> i32 {
+        self.side
+    }
+}
