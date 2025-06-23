@@ -62,7 +62,7 @@ impl DoesItBark for Cat {
     }
 }
 
-struct Rectangle {
+pub struct Rectangle {
     width: i32,
     height: i32,
 }
@@ -73,7 +73,7 @@ impl Rectangle {
     }
 } 
     
-struct Square {
+pub struct Square {
     side: i32,
 }
 
@@ -88,15 +88,15 @@ impl Square {
 }
 
 
-trait Rectanglur {
+pub trait Rectanglur {
 
-    fn get_width(&self) -> i32;
-    fn get_length(&self) -> i32;
-    fn get_area(&self) -> i32;
+     fn get_width(&self) -> i32;
+     fn get_length(&self) -> i32;
+     fn get_area(&self) -> i32;
 }
 
 impl Rectanglur for Rectangle {
-    fn get_area(&self) -> i32 {
+     fn get_area(&self) -> i32 {
         self.height * self.width
     }
 
