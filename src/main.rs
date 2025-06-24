@@ -7,6 +7,8 @@ static  BYTES:[u8; 3] = [1, 2, 3];
 static mut BYTES_MUT: [u8; 3] = [1, 2, 3];
 
 fn main() {
+
+    println!("Iam a {}",describe_type::<Dog>());
     two::out();
 
     //MUT_BYTES_MUT[0] = 4;

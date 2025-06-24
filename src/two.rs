@@ -121,3 +121,24 @@ impl Rectanglur for Square {
         self.side
     }
 }
+
+trait SelfDescribing {
+    fn describe() -> String;
+}
+
+pub fn describe_type<T: SelfDescribing>() ->string {
+    T::describe()
+}
+
+impl SelfDescribing for Dog {
+    fn describe() -> String {
+        "happy little dog".into()
+    }
+}
+
+impl SelfDescribing for Cat {
+    fn describe() -> String {
+        "happy little cat".into()
+    }
+}
+
