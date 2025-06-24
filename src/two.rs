@@ -126,15 +126,15 @@ trait SelfDescribing {
     fn describe() -> String;
 }
 
-pub fn describe_type<T: SelfDescribing>() ->string {
-    T::describe()
-}
+// pub fn describe_type<T: SelfDescribing>() ->string {
+//     T::describe()
+// }
 
-impl SelfDescribing for Dog {
-    fn describe() -> String {
-        "happy little dog".into()
-    }
-}
+// impl SelfDescribing for Dog {
+//     fn describe() -> String {
+//         "happy little dog".into()
+//     }
+// }
 
 impl SelfDescribing for Cat {
     fn describe() -> String {
@@ -142,3 +142,17 @@ impl SelfDescribing for Cat {
     }
 }
 
+#[derive(Clone, Debug,)]
+pub struct Pumkin {
+   pub mass: i32,
+   pub diameter: i32,
+}
+
+impl Default for Pumkin {
+    fn default() -> Self {
+        Pumkin {
+            mass: 5,
+            diameter: 10,
+        }
+    }
+}

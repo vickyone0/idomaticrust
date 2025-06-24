@@ -1,6 +1,6 @@
 mod two;
 mod boradv;
-use crate::two::{Rectangle, Rectanglur, Square};
+use crate::two::*;
 
 
 static  BYTES:[u8; 3] = [1, 2, 3];
@@ -8,7 +8,16 @@ static mut BYTES_MUT: [u8; 3] = [1, 2, 3];
 
 fn main() {
 
-    println!("Iam a {}",describe_type::<Dog>());
+    let big_pumkin = Pumkin{
+        mass: 10,
+        diameter: 20,
+    };
+
+    println!("cloned pumkin is {:?}", big_pumkin.clone());
+    println!("pumkin is {:?}", big_pumkin);
+    println!("pumkin is {:?}", Pumkin::default());
+
+    //println!("Iam a {}",describe_type::<Dog>());
     two::out();
 
     //MUT_BYTES_MUT[0] = 4;
