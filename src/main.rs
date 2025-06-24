@@ -1,12 +1,20 @@
 mod two;
 mod boradv;
+mod three;
+
 use crate::two::*;
+use crate::three::*;
+
 
 
 static  BYTES:[u8; 3] = [1, 2, 3];
 static mut BYTES_MUT: [u8; 3] = [1, 2, 3];
 
 fn main() {
+
+    let black_cat = Cat::new(String::from("harry"), CatColor::Black);
+
+    match_on_black_cats(&black_cat);
 
     let big_pumkin = Pumkin{
         mass: 10,
