@@ -7,10 +7,13 @@ use crate::three::*;
 
 
 
+
 static  BYTES:[u8; 3] = [1, 2, 3];
 static mut BYTES_MUT: [u8; 3] = [1, 2, 3];
 
 fn main() {
+
+    clos();
 
     let black_cat = Cat::new(String::from("harry"), CatColor::Black);
 

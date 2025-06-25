@@ -143,4 +143,74 @@ fn try_to_write_to_file() {
         Ok(()) => println!("Write succeeded"),
         Err(err) => println!("Write failed: {}",err.message),
     }
+}pub fn clos() {
+    let print_and_increment = |value| {
+        println!("{value} will be incremented and return");
+        value + 1
+    };
+    print_and_increment(5);
+
+
+    let left_value = || 1;
+    let right_value = || 2;
+    let adder = |left: fn() -> i32, right: fn() -> i32| {
+        left() + right()
+    };
+
+    println!("{} + {} = {}",
+                left_value(),
+                right_value(),
+                adder(left_value, right_value));
+
+
+    let consumable = String::from("cookie");
+    let consumer = move || consumable;
+    consumer();
+}
+
+use std::cell::RefCell;
+use std::rc::Rc;
+
+type ItemData<T> = Rc<RefCell<T>>;
+type ListItemPtr<T> = Rc<RefCell<ListItem<T>>>;
+
+struct ListItem<T> {
+    data: ItemData<T>,
+    next: Option<ListItemPtr<T>>,
+}
+
+impl<T> ListItem<T> {
+    fn new(t: T) -> Self {
+        Self { data: Rc::new(RefCell::new(t)),
+             next: None,
+             }
+    }
+}
+
+struct LinkedList<T> {
+    head: ListItemPtr<T>,
+    cur_iter: Option<ListItemPtr<T>>,
+}
+
+impl<T> LinkedList<T> {
+    fn new(t: T) -> Self {
+        Self { 
+            head: Rc::new(RefCell::new(ListItem::new(t))),
+            cur_iter: None,}
+    }
+    
+}
+
+impl<T> Iterator for LinkedList<T> {
+
+    type Item = ListItemPtr<T>;
+    fn next(&mut self) -> Option<Self::Item> {
+        match &self.cur_iter.clone() {
+            None => {
+                self.cur_iter = Some(self.head.clone());
+            }
+        }
+        self.cur_iter.clone()
+    }
+
 }
