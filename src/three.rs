@@ -201,16 +201,16 @@ impl<T> LinkedList<T> {
     
 }
 
-impl<T> Iterator for LinkedList<T> {
+// impl<T> Iterator for LinkedList<T> {
 
-    type Item = ListItemPtr<T>;
-    fn next(&mut self) -> Option<Self::Item> {
-        match &self.cur_iter.clone() {
-            None => {
-                self.cur_iter = Some(self.head.clone());
-            }
-        }
-        self.cur_iter.clone()
-    }
+//     type Item = ListItemPtr<T>;
+//     fn next(&mut self) -> Option<Self::Item> {
+//         match &self.cur_iter.clone() {
+//             None => {
+//                 self.cur_iter = Some(self.head.clone());
+//             }
+//         }
+//         self.cur_iter.clone()
+//     }
 
-}
+// }

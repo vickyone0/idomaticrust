@@ -1,9 +1,11 @@
 mod two;
 mod boradv;
 mod three;
+mod interbiew;
 
 use crate::two::*;
 use crate::three::*;
+use crate::interbiew::*;
 
 
 
@@ -54,5 +56,6 @@ fn main() {
                 rect.get_area(),
             );
 
-
+    
+   read_file("input.txt");
 }
