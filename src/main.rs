@@ -82,8 +82,16 @@ let mut pizza_hut = Pizza::new(
 );
    
    println!("{:?}",pizza_hut);
+
+ use std::path::Path;
+   let path = Path::new("Cargo.toml");
+
+   println!("the 3rd line in cargo.toml is {:?}", 
+                read_nth_line(path, 0));
     
 
+
+                
 }
 
 #[get("/hello")]
