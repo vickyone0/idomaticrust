@@ -25,3 +25,21 @@ pub async   fn std_thread(){
 
 
 }
+
+
+pub async fn multi_std (){
+
+    let handle = thread::spawn(|| {
+        for i in 1..5{
+            println!("this is from spawn thread {}",i);
+            thread::sleep(Duration::from_millis(1000));
+        }
+    });
+
+    for i in 1..4 {
+        println!("Main: Count {}", i);
+        thread::sleep(Duration::from_millis(1000));
+    }
+
+    handle.join().unwrap();
+}  

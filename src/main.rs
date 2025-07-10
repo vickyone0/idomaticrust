@@ -20,8 +20,8 @@ use actix_web::{get, web, App, HttpServer, Responder};
 
 static  BYTES:[u8; 3] = [1, 2, 3];
 static mut BYTES_MUT: [u8; 3] = [1, 2, 3];
-//#[actix_web::main]
-fn main()  {
+#[actix_web::main]
+async fn main()  {
 
 //     clos();
 
@@ -77,17 +77,20 @@ fn main()  {
 //     .run()
 //     .await
 
-let mut pizza_hut = Pizza::new(
-     vec![String::from("honey"),]
-);
+// let mut pizza_hut = Pizza::new(
+//      vec![String::from("honey"),]
+// );
    
-   println!("{:?}",pizza_hut);
+//    println!("{:?}",pizza_hut);
 
- use std::path::Path;
-   let path = Path::new("Cargo.toml");
+//  use std::path::Path;
+//    let path = Path::new("Cargo.toml");
 
-   println!("the 3rd line in cargo.toml is {:?}", 
-                read_nth_line(path, 0));
+//    println!("the 3rd line in cargo.toml is {:?}", 
+//                 read_nth_line(path, 0));
+
+
+multi_std().await;
     
 
 
