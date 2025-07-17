@@ -5,7 +5,7 @@ mod interbiew;
 mod multithread;
 mod backend;
 mod four;
-
+mod pattern;
 use actix_web::Error;
 
 use crate::two::*;
@@ -14,6 +14,8 @@ use crate::interbiew::*;
 use crate::multithread::*;
 use crate::backend::*;
 use crate::four::*;
+
+use crate::pattern::*;
 
 
 use actix_web::{get, web, App, HttpServer, Responder};
@@ -90,11 +92,34 @@ async fn main()  {
 //                 read_nth_line(path, 0));
 
 
-multi_std().await;
+// multi_std().await;
     
+// macro_rules! print_what_it_is {
+//     () => {
+//         println! (" A macro with no arguments")
+//     };
+//     ($e:expr) => {
+//         println!("A macro with an expression")
+//     };
+//     ($s:stmt) => {
+//         println! (" a macro wirh a statement")
+//     };
+// }
 
-
+// print_what_it_is!();
+// print_what_it_is!({});
+// print_what_it_is!(;);
                 
+
+//                 macro_rules! special_println {
+//     ($($arg:tt)*) => {           
+//         println!($($arg)*)       
+//     };
+// }
+
+// special_println!("jkjfn");
+
+outs();
 }
 
 #[get("/hello")]
